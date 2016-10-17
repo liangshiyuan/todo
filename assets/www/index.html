@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--
     Licensed to the Apache Software Foundation (ASF) under one
     or more contributor license agreements.  See the NOTICE file
@@ -24,7 +24,7 @@
             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
         Some notes:
             * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * https://ssl.gstatic.com is required only on Android andui is needed for TalkBack to function properly
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
@@ -32,18 +32,75 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/weui.css">
         <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
+        <title>TODO</title>
+        <style type="text/css">
+            .arfup1{
+                text-indent: 55px;
+            }
+            .arfup2{
+				text-indent: 1em;
+			}
+        </style>
     </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+<body ontouchstart="">
+    <div class="container">
+		<div class="title weui-flex">
+            <div class="weui-flex__item"></div>
+            <div class="weui-flex__item"><label>TODO</label></div>
+            <div class="weui-flex__item btn-right"><a href="./edit.html">+</a></div>
+        </div>
+        <div>
+            <div class="weui-cells" id="list">
+                <a class="weui-cell weui-cell_access js_item" data-id="button" href="javascript:;">
+                    <div class="weui-cell__bd">
+                        <p class="arfup1">
+                            <img src="img/wait.png" width="20px" height="20px" alt=""/>
+                            <span>10月16号周日</span>
+                        </p>
+                    </div>
+                </a>
+                <a class="weui-cell weui-cell_access js_item" href="./edit.html?index=1">
+                    <div class="weui-cell__bd">
+                        16:00&nbsp;&nbsp;&nbsp;<input type="checkbox" value="A1" name="test"/>Test1
+                    </div>
+                    <div class="weui-cell__ft"></div>
+                </a>
+				<a class="weui-cell weui-cell_access js_item" href="./edit.html?index=2">
+                    <div class="weui-cell__bd">
+                        16:00&nbsp;&nbsp;&nbsp;<input type="checkbox" value="A1" name="test"/>Test2
+                    </div>
+                    <div class="weui-cell__ft"></div>
+                </a>
+				<a class="weui-cell weui-cell_access js_item" href="./edit.html?index=3">
+                    <div class="weui-cell__bd">
+                        16:00&nbsp;&nbsp;&nbsp;<input type="checkbox" value="A1" name="test"/>Test3
+                    </div>
+                    <div class="weui-cell__ft"></div>
+                </a>
             </div>
         </div>
+		<script id="myTemplate" type="text/x-jquery-tmpl"> 
+            <a class="weui-cell weui-cell_access js_item" href="./edit.html?index=1">
+                <div class="weui-cell__bd">
+                        ${time}&nbsp;&nbsp;&nbsp;<input type="checkbox" value="A1" name="test"/>${title}
+                </div>
+                <div class="weui-cell__ft"></div>
+            </a>
+        </script> 
+	</div>
+		<!--
         <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/zepto.min.js"></script>
+        <script type="text/javascript" src="js/jweixin-1.0.0.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-    </body>
+		<!-->
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.tmpl.min.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script>
+			$('#myTemplate').tmpl(getData()).appendTo('#list'); 
+		</script>
+</body>
 </html>
